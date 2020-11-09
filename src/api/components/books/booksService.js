@@ -1,11 +1,19 @@
 const Book = require("./booksDAL");
 
-const bookCategories = ['Self help', 'Health', 'Biography', 'Cookbooks', 'Romantic'];
-
 module.exports.getBook = async (bookId) => {
   try {
     const book = await Book.findById(bookId).populate('author').exec();
     return book;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports.getBooksByCategory = async(category) => {
+  try {
+    const books = await Book.find();
+    // return books;
+    console.log(books);
   } catch (err) {
     console.log(err);
   }

@@ -7,6 +7,10 @@ const authorSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  imgLink: {
+    type: String,
+    required: true
+  },
   description: String,
   facebookLink: String,
   twitterLink: String,

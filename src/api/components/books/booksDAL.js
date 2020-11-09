@@ -7,6 +7,10 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  imgLink: {
+    type: String,
+    required: true
+  },
   author: {
     type: ObjectId,
     required: true,

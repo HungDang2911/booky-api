@@ -5,8 +5,8 @@ module.exports.createAuthor = async (req, res) => {
 
   try {
     await authorsService.createAuthor(author);
-    res.status(200);
+    res.status(200).send();
   } catch (err) {
-    res.status(500);
+    res.status(500).send();
   }
 }
