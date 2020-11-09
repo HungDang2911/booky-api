@@ -4,7 +4,7 @@ module.exports.getBook = async (req, res) => {
   const bookId = req.params.id;
   try {
     const book = await booksService.getBook(bookId);
-    res.status(401).json(book);
+    res.status(200).json(book);
   } catch (err) {
     res.status(404).send();
   }
