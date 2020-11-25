@@ -1,16 +1,23 @@
-require('dotenv').config();
-const http = require('http');
-const app = require('./src/app');
-const mongoose = require('mongoose');
+require("dotenv").config();
+const http = require("http");
+const app = require("./src/app");
+const mongoose = require("mongoose");
 const db = mongoose.connection;
 
-mongoose.connect(process.env.MONGODB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URL,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    console.log(err);
+  }
+);
 
-db.once('open', () => {
-  console.log('connected database');
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+  console.log("connected database");
 });
 
 const port = process.env.PORT || 3000;
