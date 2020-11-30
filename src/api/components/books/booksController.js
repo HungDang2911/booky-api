@@ -31,3 +31,34 @@ module.exports.createReview = async (req, res) => {
     res.status(404);
   }
 }
+
+module.exports.searchBook = async (req, res) => {
+  const name = req.query.name;
+}
+
+module.exports.getOneBook = async (req, res) => {
+  try {
+    const books = await booksService.getRandomBooks(1);
+    res.status(200).send(books);
+  } catch (err) {
+    res.status(500).send();
+  }
+}
+
+module.exports.getFourBooks = async (req, res) => {
+  try {
+    const books = await booksService.getRandomBooks(4);
+    res.status(200).send(books);
+  } catch (err) {
+    res.status(500).send();
+  }
+}
+
+module.exports.getSixBooks = async (req, res) => {
+  try {
+    const books = await booksService.getRandomBooks(6);
+    res.status(200).send(books);
+  } catch (err) {
+    res.status(500).send();
+  }
+}
