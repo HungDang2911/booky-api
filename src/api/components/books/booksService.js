@@ -64,7 +64,7 @@ module.exports.getRandomBooks = async (number) => {
 
 module.exports.getBookByName = async (bookName) => {
   try {
-    const records = await Book.find({ name: new RegExp(bookName, "i") });
+    const records = await Book.find({ name: new RegExp(bookName, "i") }).populate("author").exec();
     return records;
   } catch (err) {
     console.log(err);

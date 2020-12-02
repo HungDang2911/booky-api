@@ -33,8 +33,9 @@ module.exports.createReview = async (req, res) => {
 }
 
 module.exports.searchBook = async (req, res) => {
-  console.log(123)
-  res.send();
+  const name = req.query.name;
+  const records = await booksService.getBookByName(name);
+  res.send(records);
 }
 
 module.exports.getOneBook = async (req, res) => {
