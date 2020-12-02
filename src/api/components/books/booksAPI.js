@@ -7,7 +7,7 @@ booksAPI.post("/:id/review", booksController.createReview);
 booksAPI.get("/random/six-books", booksController.getSixBooks);
 booksAPI.get("/random/four-books", booksController.getFourBooks);
 booksAPI.get("/random/one-book", booksController.getOneBook);
-booksAPI.get("/search", booksController.searchBook);
+booksAPI.post("/search", booksController.searchBook);
 
 
 module.exports = booksAPI;

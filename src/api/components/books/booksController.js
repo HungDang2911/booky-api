@@ -33,14 +33,16 @@ module.exports.createReview = async (req, res) => {
 }
 
 module.exports.searchBook = async (req, res) => {
-  const name = req.query.name;
+  console.log(123)
+  res.send();
 }
 
 module.exports.getOneBook = async (req, res) => {
   try {
     const books = await booksService.getRandomBooks(1);
-    res.status(200).send(books);
+    res.status(200).send(books[0]);
   } catch (err) {
+    console.log(err)
     res.status(500).send();
   }
 }
